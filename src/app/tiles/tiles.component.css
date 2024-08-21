@@ -1,7 +1,8 @@
 .tiles {
     width: 780px;
+    height: 100%;
     /* CSS: Sets the font size to 0 to remove any potential whitespace between inline-block elements */
-    font-size: 0;
+    font-size: 4px;
     /* CSS: Centers the container horizontally */
     
     margin-left: auto;
