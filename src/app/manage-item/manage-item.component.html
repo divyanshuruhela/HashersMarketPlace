@@ -1,5 +1,4 @@
 <app-tiles [tiles]="TilesByUser"></app-tiles>
-<!-- <app-add-item *ngIf="showAddItem" (closeItemForm)="closeItemForm()" [userId]="userId"></app-add-item> -->
 <div id="actions">
     <button type="button" [routerLink]="['/dashboard/manageItem/addItem',userId]" > Add New Item</button>
     <button type="button" (click)="back()">Back </button>

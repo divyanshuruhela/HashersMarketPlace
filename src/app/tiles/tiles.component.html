@@ -1,3 +1,7 @@
 <div class="tiles" >
+       <div class="controls">
+       <app-sort (sortEvent)="sortEvent($event)"></app-sort>
+       <app-search (serachedValue)="getItemBySearch($event)"></app-search>
+       </div>
        <app-tile [showUpdateItem]="showUpdateItem" *ngFor="let t of tiles" [tile]="t" ></app-tile>
 </div>

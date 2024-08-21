@@ -1,12 +1,9 @@
 import { Component, Input, Output, EventEmitter } from '@angular/core';
-import { DUMMY_ITEMS, Item } from '../../items-service';
 import { FormsModule } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { NgIf } from '@angular/common';
-import { readFile } from 'fs';
-import { HttpClient } from '@angular/common/http';
-import { ImageService } from '../../services/image.service';
 import { LocalService } from '../../services/local.service';
+import { Item, ItemService } from '../../items-service';
 
 @Component({
   selector: 'app-add-item',
@@ -25,7 +22,11 @@ export class AddItemComponent {
   file!:File;
   @Input() userId !: string;
   
-  constructor(private localService: LocalService, private activateRoute: ActivatedRoute, private router: Router, private http: HttpClient ) 
+  constructor(private localService: LocalService,
+     private activateRoute: ActivatedRoute, 
+     private router: Router, 
+     private itemService: ItemService
+     ) 
   {
 
   }
@@ -35,7 +36,7 @@ export class AddItemComponent {
 
     if(this.activateRoute.snapshot.url[2].path === 'updateItem')
     {
-        let item = DUMMY_ITEMS.find(x=>x.id == this.activateRoute.snapshot.params['itemId']);
+        let item = this.itemService.getItems().find(x=>x.id == this.activateRoute.snapshot.params['itemId']);
         this.id = item?.id ?? '';
         this.name = item?.name?? '';
         this.description = item?.description ?? '';
@@ -56,7 +57,7 @@ onSubmit(){
 
 if(this.id == '' || this.id == undefined)
 {
-    DUMMY_ITEMS.unshift({
+    this.itemService.addItems({
     id : new Date().getTime().toString(),
     name : this.name,
     description : this.description,
@@ -76,9 +77,9 @@ else{
     image : this.image,
     price : this.price
    }
-   const index = DUMMY_ITEMS.findIndex(x=>x.id == this.id);
+   const index = this.itemService.getItems().findIndex(x=>x.id == this.id);
    
-   DUMMY_ITEMS[index] = item;
+   this.itemService.getItems()[index] = item;
 }
 
 

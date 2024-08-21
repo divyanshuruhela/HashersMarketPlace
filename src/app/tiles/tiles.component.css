@@ -9,4 +9,21 @@
     margin-right: auto ;
     
   }
-  
+
+  .controls{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 20px;
+    margin-left: 35%;
+    margin-top: 5px;
+  }
+  .controls app-search,
+  .controls app-sort{
+
+     flex: 1;
+     margin-right : 10px;
+  }
+
+
+

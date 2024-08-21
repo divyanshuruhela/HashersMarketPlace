@@ -1,5 +1,21 @@
+import { Injectable } from "@angular/core";
+import { LocalService } from "./services/local.service";
 
-export const DUMMY_ITEMS :  Item[] = [
+
+export interface Item{
+    'id' : string,
+    'name':string,
+    'description' : string,
+    'price' : number,
+    'image' : string,
+    'userId': string
+}  
+
+@Injectable({
+  providedIn : 'root'
+})  
+export class ItemService{
+  private DUMMY_ITEMS: Item[]  = [
     {
       id: '12',
       name: 'SG Cricket Bat',
@@ -41,12 +57,24 @@ export const DUMMY_ITEMS :  Item[] = [
       userId: '1'
     }
   ];
+  constructor(private localService: LocalService)
+  {
+    let items = this.localService.getItem('items');
+    if(items)
+    {
+          this.DUMMY_ITEMS = JSON.parse(items);
+    }
+  }
 
-export interface Item{
-    'id' : string,
-    'name':string,
-    'description' : string,
-    'price' : number,
-    'image' : string,
-    'userId': string
-}  
+  getItems()
+     {
+        return this.DUMMY_ITEMS;
+     }
+
+     addItems(item : Item){
+          
+         this.DUMMY_ITEMS.unshift(item);
+         this.localService.setItem('items', JSON.stringify(this.DUMMY_ITEMS));
+
+     }
+}

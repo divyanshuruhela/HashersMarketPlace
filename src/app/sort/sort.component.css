@@ -1,0 +1,11 @@
+.sort-container{
+    display: flex;
+    align-items: center;
+}
+.sort-container label{
+    margin-right: 10px;
+    font-size:  1rem;
+}
+.sort-container select{
+    font-size: 1rem;
+}

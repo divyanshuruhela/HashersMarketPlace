@@ -1,0 +1,6 @@
+<div class="sort-container">
+    <label for="sort"> Sort by: </label>
+    <select id="sort" [(ngModel)]="selectSortOptions" (change)="onSortChange()">
+        <option *ngFor="let option of options" [value]="option.value"> {{option.label}}</option>
+    </select>
+</div>
