@@ -1,0 +1,22 @@
+
+  <h2>Signup</h2>
+  <form (ngSubmit)="onSubmit()">
+    <div class="signUpForm">
+    <p>
+      <label for="userName">User Name</label>
+      <input type="text" id="userName" name="userName" [(ngModel)]="enteredName"/>
+    </p>
+    <p>
+      <label for="email">Email</label>
+      <input  type= "email" id="email" name="email" [(ngModel)]="enteredEmail"/>
+    </p>
+    <p>
+      <label for="password">Password</label>
+      <input type="password" id="password" name="password" [(ngModel)]="enteredPassword"/>
+    </p>
+    <p class="actions">
+      <button type="button" (click)="onClose()">Cancel</button>
+      <button type="submit">Create</button>
+    </p>
+</div>
+  </form>

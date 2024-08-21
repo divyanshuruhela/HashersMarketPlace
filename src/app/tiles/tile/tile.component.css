@@ -1,0 +1,57 @@
+  /* CSS: Styles for individual tiles */
+  .tile {
+    /* CSS: Sets the width of each tile to one-third of the container's width */
+    width: calc(750px / 3);
+    height: fit-content;
+    /* CSS: Displays tiles as inline blocks, allowing them to appear horizontally */
+    display: inline-block;
+    background: lightgray;
+    margin-left: 1px;
+    margin-top: 1px;
+    border: 1px solid rgba(36, 14, 14, 0.799);
+
+  }
+  
+  /* CSS: Styles for headings within tiles */
+  .tile h2, p{
+    /* CSS: Sets the font size of tile headings to 20 pixels */
+    
+    font-size: 15px;
+  }
+  #content{
+    padding-left:  5%;
+  }
+ img{
+    width: calc(1000px / 4);
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+ }
+
+  button{
+     background-color: transparent;
+     border-color: black;
+     border-radius: 15%;
+     margin-left: 3px;
+     cursor: default;
+    border: none;
+    padding: 0.35rem 1.25rem;
+    margin-bottom: 5%;
+    border-radius: 4px;
+    background-color: grey;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+    transition: all 0.3s ease;
+  }
+  button:hover,
+  button:active {
+    background-color: beige;
+    box-shadow: 0 1px 6px rgba(0, 0, 0, 0.3);
+  }
+
+  .actions{
+       margin-left: auto;
+  }
+
+
+  
+ 

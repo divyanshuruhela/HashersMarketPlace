@@ -1,0 +1,14 @@
+<div class="tile">
+    <img [src] = "imagePath" alt="image" width="200" height="150">
+    <div id="content">
+    <h2>{{tile.name}}</h2>
+    <p>{{tile.description}}</p>
+    <p>Price:{{tile.price}} rs Only</p>
+    </div>
+    <p class="actions">
+    <button *ngIf= "showUpdateItem" type="button" [routerLink]="['/dashboard/manageItem/updateItem',tile.id]" routerLinkActive="router-link-active"  >Update</button>
+    <button type="button">Buy</button>
+    </p>
+</div>
+<router-outlet></router-outlet>
+
