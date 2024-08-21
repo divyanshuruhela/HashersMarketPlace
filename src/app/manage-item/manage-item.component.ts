@@ -2,10 +2,10 @@ import { Component, Input } from '@angular/core';
 import { AddItemComponent } from "./add-item/add-item.component";
 import { NgIf } from '@angular/common';
 import { TilesComponent } from "../tiles/tiles.component";
-import { DUMMY_ITEMS } from '../items-service';
 import { ActivatedRoute, RouterModule, Router } from '@angular/router';
 import { CommonService } from '../services/common.service';
 import { UserService } from '../user-service';
+import { ItemService } from '../items-service';
 
 @Component({
   selector: 'app-manage-item',
@@ -22,24 +22,14 @@ export class ManageItemComponent {
       constructor(private router: ActivatedRoute, 
         private route: Router,
         private commonService : CommonService,
-        private userService: UserService){
+        private userService: UserService,
+      private itemService: ItemService){
            this.userId = this.router.snapshot.params['userId'];
       }
 
       get TilesByUser(){
-        return DUMMY_ITEMS.filter(x=>x.userId === this.userId);
+        return this.itemService.getItems().filter(x=>x.userId === this.userId);
       }
-
-      AddNewItem()
-      {
-        this.showAddItem = true;
-      }
-
-      closeItemForm()
-      {
-        this.showAddItem = false;
-      }
-
 
       back()
       {
