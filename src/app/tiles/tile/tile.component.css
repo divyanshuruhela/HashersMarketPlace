@@ -1,22 +1,26 @@
   /* CSS: Styles for individual tiles */
   .tile {
     /* CSS: Sets the width of each tile to one-third of the container's width */
-    width: calc(750px / 3);
-    height: fit-content;
+    width: calc(750px/3);
+    height: 300px;
     /* CSS: Displays tiles as inline blocks, allowing them to appear horizontally */
-    display: inline-block;
+    display: inline-table;
+   
     background: lightgray;
     margin-left: 1px;
-    margin-top: 1px;
+    margin-top: 2px;
     border: 1px solid rgba(36, 14, 14, 0.799);
 
   }
   
   /* CSS: Styles for headings within tiles */
-  .tile h2, p{
+  .tile h2{
     /* CSS: Sets the font size of tile headings to 20 pixels */
     
     font-size: 15px;
+  }
+  p{
+    font-size: 8px;
   }
   #content{
     padding-left:  5%;
@@ -32,12 +36,12 @@
      background-color: transparent;
      border-color: black;
      border-radius: 15%;
-     margin-left: 3px;
+     margin-left: 11px;
      cursor: default;
     border: none;
     padding: 0.35rem 1.25rem;
-    margin-bottom: 5%;
     border-radius: 4px;
+    margin-bottom: auto;
     background-color: grey;
     box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
     transition: all 0.3s ease;
